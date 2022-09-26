@@ -1,4 +1,4 @@
-import dayjs from "lib/dayjs";
+import dayjs from "dayjs";
 
 export const dateTimeFormat = date => dayjs(date).format("dddd, hh:mm A");
 
