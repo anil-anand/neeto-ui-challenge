@@ -1,14 +1,10 @@
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
 };
-
-export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
-});
 
 export const NOTES_TABLE_COLUMN_DATA = [
   {
@@ -57,3 +53,38 @@ export const NOTES_CARD_DATA = [
     profilePicture: "https://i.pravatar.cc/300",
   },
 ];
+
+export const CONTACTS_DATA = buildSelectOptions([
+  "Oliver Smith",
+  "Eve Smith",
+  "Sam Smith",
+]);
+
+export const TAGS_DATA = buildSelectOptions([
+  "Sales",
+  "Finance",
+  "User Experience",
+]);
+
+export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  description: yup.string().required("Description is required"),
+  assignedContact: yup
+    .object()
+    .shape({
+      label: yup.string().oneOf(CONTACTS_DATA.map(contact => contact.label)),
+      value: yup.string().oneOf(CONTACTS_DATA.map(contact => contact.value)),
+    })
+    .nullable()
+    .required("Assigned contact is required"),
+  tags: yup
+    .array()
+    .of(
+      yup.object().shape({
+        label: yup.string().oneOf(TAGS_DATA.map(tag => tag.label)),
+        value: yup.string().oneOf(TAGS_DATA.map(tag => tag.value)),
+      })
+    )
+    .min(1, "Atleast one tag is required")
+    .required("Tag is required"),
+});
