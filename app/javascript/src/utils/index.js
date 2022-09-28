@@ -3,6 +3,7 @@ import * as R from "ramda";
 const convertStringToCamelCase = string =>
   string
     .toLowerCase()
+    .replace(/[^a-z0-9]/g, " ")
     .split(" ")
     .map((word, index) =>
       index === 0
