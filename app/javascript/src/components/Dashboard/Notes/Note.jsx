@@ -3,7 +3,7 @@ import React from "react";
 import { Clock, MenuVertical } from "neetoicons";
 import { Avatar, Dropdown, Tag, Tooltip, Typography } from "neetoui";
 
-import { dateTimeFormat, relativeCreationTime } from "./utils";
+import { dateTimeFormat, formatDateRelativeToNow } from "./utils";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -47,7 +47,7 @@ const Note = ({ note, setShowDeleteAlert, setSelectedNoteId }) => (
         >
           <Typography style="body3" weight="light">
             {" "}
-            {relativeCreationTime(note.createdAt)}
+            {formatDateRelativeToNow(note.createdAt)}
           </Typography>
         </Tooltip>
         <Avatar
