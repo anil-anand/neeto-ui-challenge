@@ -1,3 +1,6 @@
+import { buildSelectOptions } from "utils";
+import * as yup from "yup";
+
 export const CONTACTS_DATA = [
   {
     id: 1,
@@ -80,3 +83,29 @@ export const CONTACTS_DATA = [
     profile: "",
   },
 ];
+
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: null,
+};
+
+export const ROLES_DATA = buildSelectOptions(["Admin", "Owner"]);
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  email: yup
+    .string()
+    .email("Email should be valid")
+    .required("Email is required"),
+  role: yup
+    .object()
+    .shape({
+      label: yup.string().oneOf(ROLES_DATA.map(role => role.label)),
+      value: yup.string().oneOf(ROLES_DATA.map(role => role.value)),
+    })
+    .nullable()
+    .required("Role is required"),
+});
