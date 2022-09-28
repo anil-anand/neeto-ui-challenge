@@ -61,11 +61,8 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Assigned Contact"
               name="assignedContact"
+              options={CONTACTS_DATA}
               placeholder="Select contact"
-              options={CONTACTS_DATA.map(({ label, value }) => ({
-                label,
-                value,
-              }))}
             />
             <Select
               isClearable
@@ -75,11 +72,8 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Tags"
               name="tags"
+              options={TAGS_DATA}
               placeholder="Select tag"
-              options={TAGS_DATA.map(({ label, value }) => ({
-                label,
-                value,
-              }))}
             />
           </Pane.Body>
           <Pane.Footer>

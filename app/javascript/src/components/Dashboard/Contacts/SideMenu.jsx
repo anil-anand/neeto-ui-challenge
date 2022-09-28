@@ -6,11 +6,11 @@ import { MenuBar } from "neetoui/layouts";
 
 const SideMenu = ({ showMenu }) => (
   <div className="flex">
-    <MenuBar showMenu={showMenu} title="Notes">
-      <MenuBar.Block active count={200} label="All" />
-      <MenuBar.Block count={80} label="Users" />
-      <MenuBar.Block count={60} label="Leads" />
-      <MenuBar.Block count={60} label="Visitors" />
+    <MenuBar showMenu={showMenu} title="Contacts">
+      <MenuBar.Block active count={0} label="All" />
+      <MenuBar.Block count={0} label="Archived" />
+      <MenuBar.Block count={0} label="Completed" />
+      <MenuBar.Block count={0} label="Phase 2" />
       <MenuBar.SubTitle
         iconProps={[
           {
@@ -27,9 +27,6 @@ const SideMenu = ({ showMenu }) => (
           Segments
         </Typography>
       </MenuBar.SubTitle>
-      <MenuBar.Block count={80} label="Europe" />
-      <MenuBar.Block count={60} label="Middle-East" />
-      <MenuBar.Block count={60} label="Asia" />
       <MenuBar.SubTitle
         iconProps={[
           {
@@ -52,9 +49,6 @@ const SideMenu = ({ showMenu }) => (
           Tags
         </Typography>
       </MenuBar.SubTitle>
-      <MenuBar.Block count={80} label="Sales" />
-      <MenuBar.Block count={60} label="Finance" />
-      <MenuBar.Block count={60} label="User Experience" />
     </MenuBar>
   </div>
 );

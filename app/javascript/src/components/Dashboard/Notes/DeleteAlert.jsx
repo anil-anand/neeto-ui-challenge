@@ -15,7 +15,7 @@ const DeleteAlert = ({
   const handleDelete = async () => {
     try {
       setDeleting(true);
-      await notesApi.destroy({ id: selectedNoteId });
+      await notesApi.destroy({ ids: [selectedNoteId] });
       onClose();
       setSelectedNoteId(null);
       refetch();
