@@ -15,16 +15,23 @@ const renderAvatarWithNameAndRole = (name, { role, profile }) => (
   </div>
 );
 
-const renderActionDropdown = () => (
+const renderActionDropdown = setShowDeleteAlert => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal}>
     <Menu>
       <MenuItem.Button>Edit</MenuItem.Button>
-      <MenuItem.Button style="danger">Delete</MenuItem.Button>
+      <MenuItem.Button
+        style="danger"
+        onClick={() => {
+          setShowDeleteAlert(true);
+        }}
+      >
+        Delete
+      </MenuItem.Button>
     </Menu>
   </Dropdown>
 );
 
-const Table = ({ contacts }) => (
+const Table = ({ contacts, setShowDeleteAlert }) => (
   <div className="w-full">
     <NeetoUITable
       allowRowClick
@@ -56,7 +63,7 @@ const Table = ({ contacts }) => (
           dataIndex: "id",
           key: "id",
           width: "10%",
-          render: renderActionDropdown,
+          render: () => renderActionDropdown(setShowDeleteAlert),
         },
       ]}
     />
