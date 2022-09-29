@@ -15,7 +15,7 @@ const renderAvatarWithNameAndRole = (name, { role, profile }) => (
   </div>
 );
 
-const renderActionDropdown = ({ setShowDeleteAlert }) => (
+const renderActionDropdown = setShowDeleteAlert => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal}>
     <Menu>
       <MenuItem.Button>Edit</MenuItem.Button>
@@ -63,8 +63,7 @@ const Table = ({ contacts, setShowDeleteAlert }) => (
           dataIndex: "id",
           key: "id",
           width: "10%",
-          render: () =>
-            renderActionDropdown((setShowDeleteAlert = { setShowDeleteAlert })),
+          render: () => renderActionDropdown(setShowDeleteAlert),
         },
       ]}
     />
