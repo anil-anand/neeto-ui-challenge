@@ -4,6 +4,8 @@ import * as yup from "yup";
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
   title: "",
   description: "",
+  assignedContact: null,
+  tags: [],
 };
 
 export const NOTES_TABLE_COLUMN_DATA = [
