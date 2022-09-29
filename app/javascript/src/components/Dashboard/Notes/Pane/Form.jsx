@@ -13,7 +13,7 @@ import {
   TAGS_DATA,
 } from "../constants";
 
-const NoteForm = ({ onClose, refetch, note, isEdit }) => {
+const NoteForm = ({ onClose, note, isEdit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async values => {
@@ -23,7 +23,6 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
       } else {
         await notesApi.create(values);
       }
-      refetch();
       onClose();
     } catch (err) {
       logger.error(err);
@@ -46,12 +45,14 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Title"
               name="title"
+              placeholder="Enter note title"
             />
             <Textarea
               required
               className="w-full flex-grow-0"
               label="Description"
               name="description"
+              placeholder="Enter note description"
               rows={1}
             />
             <Select

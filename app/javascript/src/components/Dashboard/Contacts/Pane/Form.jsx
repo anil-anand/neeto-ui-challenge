@@ -27,14 +27,25 @@ const Form = ({ onClose, contact }) => {
         <FormikForm className="w-full">
           <Pane.Body className="space-y-6">
             <div className="flex w-full space-x-6">
-              <Input required label="First Name" name="firstName" />
-              <Input required label="Last Name" name="lastName" />
+              <Input
+                required
+                label="First Name"
+                name="firstName"
+                placeholder="Enter first name"
+              />
+              <Input
+                required
+                label="Last Name"
+                name="lastName"
+                placeholder="Enter last name"
+              />
             </div>
             <Input
               required
               className="w-full flex-grow-0"
               label="Email"
               name="email"
+              placeholder="Enter your email address"
             />
             <Select
               isClearable
